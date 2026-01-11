@@ -14,7 +14,7 @@ makedepends="
   hyprlang
   librsvg-devel
   libzip-devel
-  tomlplusplus
+  tomlplusplus-devel
 "
 short_desc="Hyprland cursor format, library and utilities"
 maintainer="zenobit <zenobit@disroot.org>"
