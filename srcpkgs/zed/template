@@ -1,0 +1,42 @@
+# Template file for 'zed'
+# Uses pre-built binaries from official releases
+pkgname=zed
+version=0.219.4
+revision=2
+archs="x86_64"
+wrksrc=zed.app
+depends="alsa-lib fontconfig libcurl libxcb libxkbcommon libzstd openssl sqlite vulkan-loader"
+short_desc="High-performance, multiplayer code editor"
+maintainer="ta <ta@localhost>"
+license="GPL-3.0-or-later, AGPL-3.0-or-later, Apache-2.0"
+homepage="https://zed.dev"
+changelog="https://github.com/zed-industries/zed/releases"
+distfiles="https://zed.dev/api/releases/stable/latest/zed-linux-x86_64.tar.gz>zed-${version}.tar.gz"
+checksum=4488716f5a0f73a6c2c897c467488a7cf7843eb0d4dc09a3d2c280ff49a5a821
+nostrip=yes
+
+do_install() {
+	# Main binary
+	vinstall libexec/zed-editor 755 usr/lib/zed
+	vinstall bin/zed 755 usr/lib/zed zed-bin
+
+	# Wrapper script
+	vmkdir usr/bin
+	cat > ${DESTDIR}/usr/bin/zed <<'EOF'
+#!/bin/sh
+exec /usr/lib/zed/zed-bin "$@"
+EOF
+	chmod 755 ${DESTDIR}/usr/bin/zed
+
+	# Bundled libraries (Zed bundles some libs for compatibility)
+	vmkdir usr/lib/zed/lib
+	vcopy "lib/*.so*" usr/lib/zed/lib
+
+	# Desktop integration
+	vinstall share/applications/zed.desktop 644 usr/share/applications
+	vinstall share/icons/hicolor/512x512/apps/zed.png 644 usr/share/icons/hicolor/512x512/apps
+	vinstall share/icons/hicolor/1024x1024/apps/zed.png 644 usr/share/icons/hicolor/1024x1024/apps
+
+	# License
+	vlicense licenses.md
+}
