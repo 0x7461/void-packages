@@ -1,8 +1,8 @@
 # Template file for 'zed'
 # Uses pre-built binaries from official releases
 pkgname=zed
-version=0.219.4
-revision=2
+version=0.223.3
+revision=1
 archs="x86_64"
 wrksrc=zed.app
 depends="alsa-lib fontconfig libcurl libxcb libxkbcommon libzstd openssl sqlite vulkan-loader"
@@ -11,20 +11,21 @@ maintainer="ta <ta@localhost>"
 license="GPL-3.0-or-later, AGPL-3.0-or-later, Apache-2.0"
 homepage="https://zed.dev"
 changelog="https://github.com/zed-industries/zed/releases"
-distfiles="https://zed.dev/api/releases/stable/latest/zed-linux-x86_64.tar.gz>zed-${version}.tar.gz"
-checksum=4488716f5a0f73a6c2c897c467488a7cf7843eb0d4dc09a3d2c280ff49a5a821
+distfiles="https://github.com/zed-industries/zed/releases/download/v${version}/zed-linux-x86_64.tar.gz>zed-${version}.tar.gz"
+checksum=4e871650aca1dbfc2f4daab83145425078da978093bd6da3b90da3ea592c6031
 nostrip=yes
 
 do_install() {
-	# Main binary
-	vinstall libexec/zed-editor 755 usr/lib/zed
-	vinstall bin/zed 755 usr/lib/zed zed-bin
+	# zed-bin looks for ../libexec/zed-editor relative to itself,
+	# so place zed-bin in usr/lib/zed/bin/ and zed-editor in usr/lib/zed/libexec/
+	vinstall bin/zed 755 usr/lib/zed/bin zed-bin
+	vinstall libexec/zed-editor 755 usr/lib/zed/libexec
 
 	# Wrapper script
 	vmkdir usr/bin
 	cat > ${DESTDIR}/usr/bin/zed <<'EOF'
 #!/bin/sh
-exec /usr/lib/zed/zed-bin "$@"
+exec /usr/lib/zed/bin/zed-bin "$@"
 EOF
 	chmod 755 ${DESTDIR}/usr/bin/zed
 
