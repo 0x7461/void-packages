@@ -1,0 +1,20 @@
+# Template file for 'superfile'
+pkgname=superfile
+version=1.5.0
+revision=1
+build_style=go
+go_import_path="github.com/yorukot/superfile"
+go_package="${go_import_path}"
+short_desc="Pretty fancy and modern terminal file manager"
+maintainer="TA <0x7461@users.noreply.github.com>"
+license="MIT"
+homepage="https://superfile.dev"
+changelog="https://github.com/yorukot/superfile/releases"
+distfiles="https://github.com/yorukot/superfile/archive/refs/tags/v${version}.tar.gz"
+checksum=bb394f73817d164b9756613ccd850fb3dd5fd5ee898defd86b27eecd4cec48bf
+
+post_install() {
+	vlicense LICENSE
+	# Binary is built as 'superfile', rename to 'spf' (upstream convention)
+	mv "${DESTDIR}/usr/bin/superfile" "${DESTDIR}/usr/bin/spf"
+}
