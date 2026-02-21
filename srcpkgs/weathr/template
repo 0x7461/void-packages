@@ -1,0 +1,17 @@
+# Template file for 'weathr'
+pkgname=weathr
+version=1.3.0
+revision=1
+build_style=cargo
+hostmakedepends="pkg-config"
+short_desc="Terminal weather app with ASCII animations"
+maintainer="ta <ta@localhost>"
+license="GPL-3.0-or-later"
+homepage="https://github.com/Veirt/weathr"
+changelog="https://raw.githubusercontent.com/Veirt/weathr/main/CHANGELOG.md"
+distfiles="https://github.com/Veirt/weathr/archive/v${version}.tar.gz"
+checksum=88eebe264fc874be24b0f250d19b48eaecf050b268af6f333ec1ce6da13a30f0
+
+post_install() {
+	vlicense LICENSE
+}
