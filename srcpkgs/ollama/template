@@ -12,13 +12,18 @@ homepage="https://ollama.com"
 changelog="https://github.com/ollama/ollama/releases"
 distfiles="https://github.com/ollama/ollama/releases/download/v${version}/ollama-linux-amd64.tar.zst"
 checksum=95a53478846ee38765ac9c8be713457634fc3e4b8c69801132bef769ce98bd00
+depends="openblas"
+shlib_provides="libvulkan.so.1"
 nostrip=yes
 
 do_install() {
 	# Install main binary
 	vbin bin/ollama
 
-	# Install GPU runners and support libs
+	# Install CPU and Vulkan runners (skip CUDA — libcuda.so.1 not in Void repos)
 	vmkdir usr/lib/ollama
-	vcopy "lib/ollama/*" usr/lib/ollama
+	for f in lib/ollama/libggml-*.so lib/ollama/libggml-base.so.*; do
+		[ -f "$f" ] && vcopy "$f" usr/lib/ollama
+	done
+	vcopy lib/ollama/vulkan usr/lib/ollama
 }
