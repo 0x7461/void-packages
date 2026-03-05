@@ -1,0 +1,41 @@
+# Template file for 'yaak'
+# Binary repack of official .deb release
+pkgname=yaak
+version=2026.2.4
+revision=1
+archs="x86_64"
+depends="libwebkit2gtk41 gtk+3 dbus libsoup3 sqlite"
+short_desc="Intuitive desktop API client for REST, GraphQL, WebSockets and gRPC"
+maintainer="ta <ta@localhost>"
+license="MIT"
+homepage="https://yaak.app"
+changelog="https://github.com/mountain-loop/yaak/releases"
+distfiles="https://github.com/mountain-loop/yaak/releases/download/v${version}/yaak_${version}_amd64.deb"
+checksum=dff48906cf2af403c0470709e7ef04d75c551d7370c5aa0e4d2d4ffd7006a29b
+nostrip=yes
+
+do_extract() {
+	mkdir -p ${wrksrc}
+	cd ${wrksrc}
+	ar x ${XBPS_SRCDISTDIR}/${pkgname}-${version}/${pkgname}_${version}_amd64.deb
+	tar -xf data.tar.gz
+	rm -f debian-binary control.tar.gz data.tar.gz
+}
+
+do_install() {
+	# Main binary
+	vinstall usr/bin/yaak-app 755 usr/bin
+
+	# App data (plugins, vendored node, protoc, static assets)
+	vcopy usr/lib/yaak usr/lib
+
+	# Desktop integration
+	vinstall usr/share/applications/yaak.desktop 644 usr/share/applications
+	vinstall usr/share/metainfo/app.yaak.Yaak.metainfo.xml 644 usr/share/metainfo
+
+	# Icons
+	for size in 32x32 128x128 "256x256@2"; do
+		vinstall usr/share/icons/hicolor/${size}/apps/yaak-app.png 644 \
+			usr/share/icons/hicolor/${size}/apps
+	done
+}
