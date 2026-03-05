@@ -18,7 +18,7 @@ do_extract() {
 	mkdir -p ${wrksrc}
 	cd ${wrksrc}
 	ar x ${XBPS_SRCDISTDIR}/${pkgname}-${version}/${pkgname}_${version}_amd64.deb
-	tar -xf data.tar.gz
+	bsdtar -xf data.tar.gz
 	rm -f debian-binary control.tar.gz data.tar.gz
 }
 
