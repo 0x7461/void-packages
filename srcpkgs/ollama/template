@@ -20,10 +20,12 @@ do_install() {
 	# Install main binary
 	vbin bin/ollama
 
-	# Install CPU and Vulkan runners (skip CUDA — libcuda.so.1 not in Void repos)
+	# Install CPU, Vulkan, and CUDA runners
+	# libcuda.so.1 is provided by nvidia driver package (nvidia-580+)
 	vmkdir usr/lib/ollama
 	for f in lib/ollama/libggml-*.so lib/ollama/libggml-base.so.*; do
 		[ -f "$f" ] && vcopy "$f" usr/lib/ollama
 	done
 	vcopy lib/ollama/vulkan usr/lib/ollama
+	vcopy lib/ollama/cuda_v12 usr/lib/ollama
 }
