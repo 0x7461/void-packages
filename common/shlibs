@@ -4581,3 +4581,4 @@ libsdbus-c++.so.2 sdbus-cpp-2.1.0_1
 libhyprgraphics.so.0 hyprgraphics-0.1.3_2
 libaquamarine.so.9 aquamarine-0.10.0_2
 libhyprcursor.so.0 hyprcursor-0.1.13_1
+libcuda.so.1 nvidia-libs-580.126.18_1 ignore
