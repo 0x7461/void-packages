@@ -1,8 +1,8 @@
 # Template file for 'ollama'
 # Uses pre-built binaries from official releases
 pkgname=ollama
-version=0.20.7
-revision=2
+version=0.24.0
+revision=1
 archs="x86_64"
 create_wrksrc=yes
 short_desc="Get up and running with large language models locally"
@@ -11,7 +11,7 @@ license="MIT"
 homepage="https://ollama.com"
 changelog="https://github.com/ollama/ollama/releases"
 distfiles="https://github.com/ollama/ollama/releases/download/v${version}/ollama-linux-amd64.tar.zst"
-checksum=193c41ffee30411a76af4484dae9cdd4c2d6f8f877b7096925c36f2489af131f
+checksum=15c5f8d66ba06e0d3b4719df8868612dbd66e14e82760929bb3552e1657cdcdb
 depends="openblas"
 shlib_provides="libvulkan.so.1"
 nostrip=yes
