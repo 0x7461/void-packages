@@ -1,6 +1,7 @@
 # Template file for 'vxpm'
+# vxpm-auto-bump: true
 pkgname=vxpm
-version=0.4.1
+version=0.4.2
 revision=1
 archs="x86_64"
 short_desc="TUI for managing custom void-packages templates"
@@ -9,7 +10,7 @@ license="MIT"
 homepage="https://github.com/0x7461/vxpm"
 changelog="https://github.com/0x7461/vxpm/releases"
 distfiles="https://github.com/0x7461/vxpm/releases/download/v${version}/vxpm-linux-x86_64.tar.gz"
-checksum=6aa0d5242a52d77a85de76a3b04d318a10df33ada65e8deb03c4cbb8a992f70b
+checksum=97f2f6464e92a8115e67bea5ed58a8b02b1c66f7d41f1136d11d341cdb2b5008
 
 do_install() {
 	vbin vxpm
