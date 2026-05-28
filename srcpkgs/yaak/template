@@ -1,7 +1,8 @@
 # Template file for 'yaak'
+# vxpm-auto-bump: true
 # Binary repack of official .deb release
 pkgname=yaak
-version=2026.3.1
+version=2026.4.0
 revision=1
 archs="x86_64"
 depends="libwebkit2gtk41 gtk+3 dbus libsoup3 sqlite"
@@ -11,7 +12,7 @@ license="MIT"
 homepage="https://yaak.app"
 changelog="https://github.com/mountain-loop/yaak/releases"
 distfiles="https://github.com/mountain-loop/yaak/releases/download/v${version}/yaak_${version}_amd64.deb"
-checksum=31203c0d20b08ffab4de7b3e4438f08257a6081c56f3682d1fc1e75dc8cebb83
+checksum=96b746d76fddd63e68fe6a34e00fb9483ef485cc6f6a8c8945eb16b99e007f39
 nostrip=yes
 
 do_extract() {
