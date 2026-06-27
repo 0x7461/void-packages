@@ -2,7 +2,7 @@
 # vxpm-auto-bump: true
 # Uses pre-built binaries from official releases
 pkgname=ollama
-version=0.24.0
+version=0.30.0
 revision=1
 archs="x86_64"
 create_wrksrc=yes
