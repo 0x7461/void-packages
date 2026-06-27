@@ -1,7 +1,7 @@
 # Template file for 'vxpm'
 # vxpm-auto-bump: true
 pkgname=vxpm
-version=0.4.2
+version=0.5.0
 revision=1
 archs="x86_64"
 short_desc="TUI for managing custom void-packages templates"
