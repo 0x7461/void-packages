@@ -2,7 +2,7 @@
 # vxpm-auto-bump: true
 # Uses pre-built binaries from official releases
 pkgname=zed
-version=1.8.2
+version=1.9.0
 revision=1
 archs="x86_64"
 wrksrc=zed.app
@@ -13,7 +13,7 @@ license="GPL-3.0-or-later, AGPL-3.0-or-later, Apache-2.0"
 homepage="https://zed.dev"
 changelog="https://github.com/zed-industries/zed/releases"
 distfiles="https://github.com/zed-industries/zed/releases/download/v${version}/zed-linux-x86_64.tar.gz>zed-${version}.tar.gz"
-checksum=5096390f6d1a209bc2acb8d9b634dcd516709af33a0fc2ff62a0edb0cbc88108
+checksum=39e553ce3a00feeb78eab63a5cb7237cb460f3c9596b1b19052ceb7b9e8ec4dd
 nostrip=yes
 
 do_install() {
