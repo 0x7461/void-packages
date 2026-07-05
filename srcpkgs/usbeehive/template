@@ -1,0 +1,17 @@
+# Template file for 'usbeehive'
+pkgname=usbeehive
+version=0.11.0
+revision=1
+build_style=cargo
+hostmakedepends="pkg-config"
+makedepends="eudev-libudev-devel"
+short_desc="Shows what each USB cable and device can actually do"
+maintainer="ta <ta@localhost>"
+license="MIT"
+homepage="https://github.com/abrauchli/usbeehive"
+distfiles="https://github.com/abrauchli/usbeehive/archive/v${version}.tar.gz"
+checksum=6a2bfe34fd8ea1ae68a93bfc435ef01c1fb6ea53e91f29f1c84c51f433b2fadb
+
+post_install() {
+	vlicense LICENSE
+}
