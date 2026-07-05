@@ -16,9 +16,11 @@ makedepends="
   hyprutils
   libjpeg-turbo-devel
   libjxl-devel
+  librsvg-devel
   libspng
   libwebp-devel
   MesaLib-devel
+  pango-devel
   pixman-devel
 "
 short_desc="hyprland graphics resources and utilities"
