@@ -4606,5 +4606,5 @@ libhyprutils.so.12 hyprutils-0.13.1_1
 libhyprlang.so.2 hyprlang-0.6.8_1
 libtomlplusplus.so.3 tomlplusplus-3.4.0_1
 libspng.so.0 libspng-0.7.4_1
-libhyprgraphics.so.0 hyprgraphics-0.5.1_1
+libhyprgraphics.so.4 hyprgraphics-0.5.1_1
 libcuda.so.1 nvidia-libs-580.126.18_1 ignore
