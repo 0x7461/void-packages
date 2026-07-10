@@ -3,7 +3,7 @@
 # Uses pre-built binaries from official releases
 pkgname=ollama
 version=0.31.2
-revision=1
+revision=2
 archs="x86_64"
 create_wrksrc=yes
 short_desc="Get up and running with large language models locally"
@@ -18,16 +18,10 @@ shlib_provides="libvulkan.so.1"
 nostrip=yes
 
 do_install() {
-	# Install main binary
 	vbin bin/ollama
 
-	# Install CPU, Vulkan, and CUDA runners
+	# Ship the whole runtime tree: since 0.31.x it includes the
+	# llama-server runner binary and its libs, not just libggml-*.
 	# libcuda.so.1 is provided by nvidia driver package (nvidia-580+)
-	vmkdir usr/lib/ollama
-	for f in lib/ollama/libggml-*.so lib/ollama/libggml-base.so.*; do
-		[ -f "$f" ] && vcopy "$f" usr/lib/ollama
-	done
-	vcopy lib/ollama/vulkan usr/lib/ollama
-	vcopy lib/ollama/cuda_v12 usr/lib/ollama
-	vcopy lib/ollama/cuda_v13 usr/lib/ollama
+	vcopy lib/ollama usr/lib
 }
