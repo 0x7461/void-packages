@@ -24,8 +24,8 @@ do_extract() {
 }
 
 do_install() {
-	# Main binary
-	vinstall usr/bin/yaak-app 755 usr/bin
+	# Main binary (upstream renamed yaak-app -> yaak-app-client in 2026.5.0)
+	vinstall usr/bin/yaak-app-client 755 usr/bin
 
 	# App data (plugins, vendored node, protoc, static assets)
 	vcopy usr/lib/yaak usr/lib
@@ -36,7 +36,7 @@ do_install() {
 
 	# Icons
 	for size in 32x32 128x128 "256x256@2"; do
-		vinstall usr/share/icons/hicolor/${size}/apps/yaak-app.png 644 \
+		vinstall usr/share/icons/hicolor/${size}/apps/yaak-app-client.png 644 \
 			usr/share/icons/hicolor/${size}/apps
 	done
 }
