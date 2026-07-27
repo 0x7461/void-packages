@@ -4600,8 +4600,6 @@ libfyaml.so.0 libfyaml-0.9.6_1
 libcpptrace.so.1 cpptrace-1.0.4_1
 libcgif.so.0 cgif-0.5.3_1
 libdsk.so.5 libdsk-1.5.22_1
-libhyprutils.so.10 hyprutils-0.11.0_1
-libhyprlang.so.2 hyprlang-0.6.7_1
 libhyprutils.so.12 hyprutils-0.13.1_1
 libhyprlang.so.2 hyprlang-0.6.8_1
 libtomlplusplus.so.3 tomlplusplus-3.4.0_1
