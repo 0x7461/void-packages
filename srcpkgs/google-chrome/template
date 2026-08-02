@@ -1,5 +1,4 @@
 # Template file for 'google-chrome'
-# vxpm-auto-bump: true
 pkgname=google-chrome
 version=151.0.7922.71
 revision=1
