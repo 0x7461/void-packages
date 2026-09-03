@@ -2,7 +2,7 @@
 # vxpm-auto-bump: true
 # Uses pre-built binaries from official releases
 pkgname=ollama
-version=0.33.2
+version=0.33.3
 revision=1
 archs="x86_64"
 create_wrksrc=yes
@@ -12,7 +12,7 @@ license="MIT"
 homepage="https://ollama.com"
 changelog="https://github.com/ollama/ollama/releases"
 distfiles="https://github.com/ollama/ollama/releases/download/v${version}/ollama-linux-amd64.tar.zst"
-checksum=9785247dea264d9072f09f6c9c0eb4b8e666892826a3d8388eba3e8fb9ed1db9
+checksum=c13cea8f3389db4145f8a6cb88d1747242a48639d7c13e3bda7c1ebdc6eebb2f
 depends="openblas"
 shlib_provides="libvulkan.so.1"
 nostrip=yes
