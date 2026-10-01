@@ -1,5 +1,5 @@
 # Template file for 'ollama'
-# vxpm-auto-bump: true
+# smith-auto-bump: true
 # Uses pre-built binaries from official releases
 pkgname=ollama
 version=0.35.0

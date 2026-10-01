@@ -1,5 +1,5 @@
 # Template file for 'zed'
-# vxpm-auto-bump: true
+# smith-auto-bump: true
 # Uses pre-built binaries from official releases
 pkgname=zed
 version=1.22.0
