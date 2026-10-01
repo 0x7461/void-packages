@@ -1,0 +1,18 @@
+# Template file for 'smith'
+# smith-auto-bump: true
+pkgname=smith
+version=0.8.0
+revision=1
+archs="x86_64"
+short_desc="TUI for managing custom void-packages templates"
+maintainer="ta <ta@localhost>"
+license="MIT"
+homepage="https://github.com/0x7461/smith"
+changelog="https://github.com/0x7461/smith/releases"
+distfiles="https://github.com/0x7461/smith/releases/download/v${version}/smith-linux-x86_64.tar.gz"
+checksum=19710013348ee8c13e4b557e0602d641d97d85144d344bcad81187fbe36e71be
+
+do_install() {
+	vbin smith
+	vlicense LICENSE
+}

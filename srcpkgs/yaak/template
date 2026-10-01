@@ -1,5 +1,5 @@
 # Template file for 'yaak'
-# vxpm-auto-bump: true
+# smith-auto-bump: true
 # Binary repack of official .deb release
 pkgname=yaak
 version=2026.8.1
