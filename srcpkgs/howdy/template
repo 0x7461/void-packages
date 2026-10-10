@@ -4,6 +4,9 @@ version=3.0.0.beta.20250622
 revision=1
 # No 3.x tag exists; this is the tip of master (upstream version string is "beta").
 _commit=d3ab99382f88f043d15f15c1450ab69433892a1c
+# dlib-models has no tags; pin to a commit so the checksums can't break when
+# master moves (the /raw/master/ URL redirects to a moving branch ref).
+_dlib_commit=fd81b6308a6a73d4ce08859eb2f4b628a21e27a2
 build_style=meson
 configure_args="-Dpython_path=/usr/bin/python3"
 hostmakedepends="meson ninja cmake pkg-config python3"
@@ -20,9 +23,9 @@ skip_extraction="dlib_face_recognition_resnet_model_v1.dat.bz2
 	shape_predictor_5_face_landmarks.dat.bz2"
 
 distfiles="https://github.com/boltgolt/howdy/archive/${_commit}.tar.gz
-	https://github.com/davisking/dlib-models/raw/master/dlib_face_recognition_resnet_model_v1.dat.bz2
-	https://github.com/davisking/dlib-models/raw/master/mmod_human_face_detector.dat.bz2
-	https://github.com/davisking/dlib-models/raw/master/shape_predictor_5_face_landmarks.dat.bz2"
+	https://github.com/davisking/dlib-models/raw/${_dlib_commit}/dlib_face_recognition_resnet_model_v1.dat.bz2
+	https://github.com/davisking/dlib-models/raw/${_dlib_commit}/mmod_human_face_detector.dat.bz2
+	https://github.com/davisking/dlib-models/raw/${_dlib_commit}/shape_predictor_5_face_landmarks.dat.bz2"
 
 checksum="e0b58928c6d1362ea8c630f056261bccb446fe84b507f7b7cceb7c5a55706061
 	abb1f61041e434465855ce81c2bd546e830d28bcbed8d27ffbe5bb408b11553a
