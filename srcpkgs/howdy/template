@@ -1,0 +1,43 @@
+# Template file for 'howdy'
+pkgname=howdy
+version=3.0.0.beta.20250622
+revision=1
+# No 3.x tag exists; this is the tip of master (upstream version string is "beta").
+_commit=d3ab99382f88f043d15f15c1450ab69433892a1c
+build_style=meson
+configure_args="-Dpython_path=/usr/bin/python3"
+hostmakedepends="meson ninja cmake pkg-config python3"
+makedepends="python3-devel pam-devel inih-devel libevdev-devel"
+depends="python3 libopencv-python3 python3-dlib python3-numpy pam inih libevdev"
+short_desc="Windows Hello style facial authentication for Linux"
+license="MIT"
+homepage="https://github.com/boltgolt/howdy"
+conf_files="/etc/howdy/config.ini"
+# Keep the model archives out of do-extract: decompressing them alongside the
+# source tarball breaks wrksrc detection. post_install() unpacks them itself.
+skip_extraction="dlib_face_recognition_resnet_model_v1.dat.bz2
+	mmod_human_face_detector.dat.bz2
+	shape_predictor_5_face_landmarks.dat.bz2"
+
+distfiles="https://github.com/boltgolt/howdy/archive/${_commit}.tar.gz
+	https://github.com/davisking/dlib-models/raw/master/dlib_face_recognition_resnet_model_v1.dat.bz2
+	https://github.com/davisking/dlib-models/raw/master/mmod_human_face_detector.dat.bz2
+	https://github.com/davisking/dlib-models/raw/master/shape_predictor_5_face_landmarks.dat.bz2"
+
+checksum="e0b58928c6d1362ea8c630f056261bccb446fe84b507f7b7cceb7c5a55706061
+	abb1f61041e434465855ce81c2bd546e830d28bcbed8d27ffbe5bb408b11553a
+	db9e9e40f092c118d5eb3e643935b216838170793559515541c56a2b50d9fc84
+	6e787bbebf5c9efdb793f6cd1f023230c4413306605f24f299f12869f95aa472"
+
+post_install() {
+	# The meson build ships only install.sh/Readme.md for dlib-data; unpack the
+	# models we fetched as distfiles into the directory howdy reads at runtime.
+	vmkdir usr/share/dlib-data
+	local dlib_model
+	for dlib_model in dlib_face_recognition_resnet_model_v1.dat.bz2 \
+			  mmod_human_face_detector.dat.bz2 \
+			  shape_predictor_5_face_landmarks.dat.bz2; do
+		bunzip2 -c "${XBPS_SRCDISTDIR}/${pkgname}-${version}/${dlib_model}" \
+			> "${DESTDIR}/usr/share/dlib-data/$(basename "${dlib_model}" .bz2)"
+	done
+}

@@ -1,0 +1,16 @@
+Remove the howdy-gtk front-end from the build. Void ships no python
+'elevate' module, so howdy-gtk cannot run; the core PAM module and CLI
+do not depend on it (compare.py launches it only if present and
+swallows the missing-binary error).
+
+diff --git a/meson.build b/meson.build
+index 65a5bc6..f8ed5ac 100644
+--- a/meson.build
++++ b/meson.build
+@@ -17,5 +17,4 @@ paths_dict = {
+ }
+ 
+ # We need to keep this order beause howdy-gtk defines the gtk script path which is used later in howdy
+-subdir('howdy-gtk')
+ subdir('howdy')
+\ No newline at end of file
