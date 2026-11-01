@@ -2,7 +2,7 @@
 # smith-auto-bump: true
 # Uses pre-built binaries from official releases
 pkgname=ollama
-version=0.40.11
+version=0.40.13
 revision=1
 archs="x86_64"
 create_wrksrc=yes
@@ -12,7 +12,7 @@ license="MIT"
 homepage="https://ollama.com"
 changelog="https://github.com/ollama/ollama/releases"
 distfiles="https://github.com/ollama/ollama/releases/download/v${version}/ollama-linux-amd64.tar.zst"
-checksum=7bedab90dd122661be78798e9f0edf37fccf0cccf2699d2c58ea1a3afdc04b6d
+checksum=c9490e0f520be21271d969e6703f012268b1d39f8b70dd58854e5bfef7a75bb6
 depends="openblas"
 shlib_provides="libvulkan.so.1"
 nostrip=yes
