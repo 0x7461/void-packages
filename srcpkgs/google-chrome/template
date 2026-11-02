@@ -1,6 +1,6 @@
 # Template file for 'google-chrome'
 pkgname=google-chrome
-version=155.0.8059.84
+version=156.0.8078.79
 revision=1
 _channel=stable
 archs="x86_64 aarch64"
@@ -14,11 +14,11 @@ homepage="https://www.google.com/chrome/"
 case "$XBPS_TARGET_MACHINE" in
 x86_64)
 	distfiles="https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-${_channel}_${version}-1_amd64.deb"
-	checksum=8fbd2ae69cdf7ee98b7513c3396a7b5e06f974f8625fdd590df3091dd0c3e9de
+	checksum=be1a1e161419f5c8272432f6860912550d8e29985e925913fa800493a0d0c955
 	;;
 aarch64)
 	distfiles="https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-${_channel}_${version}-1_arm64.deb"
-	checksum=f98fcc80da576811e3212c87f53e01a367a1d05d7f7c33a013398a82a04bb00f
+	checksum=dc66f2d96853153e350c4a0944da4503cae39c2fcbcdb4e0057c64f6c49202ff
 	;;
 *)
 	broken="No distfiles available for this target"
