@@ -2,7 +2,7 @@
 # smith-auto-bump: true
 # Binary repack of official .deb release
 pkgname=yaak
-version=2026.9.0
+version=2026.9.1
 revision=1
 archs="x86_64"
 depends="libwebkit2gtk41 gtk+3 dbus libsoup3 sqlite"
@@ -12,7 +12,7 @@ license="MIT"
 homepage="https://yaak.app"
 changelog="https://github.com/mountain-loop/yaak/releases"
 distfiles="https://github.com/mountain-loop/yaak/releases/download/v${version}/yaak_${version}_amd64.deb"
-checksum=fa28f3e289ac96073d13b348fa1c381d24bd842f9c285ca08451a2f279b56821
+checksum=d67d029ef4f5bd0a48d9ddb35c52c7810a7524e49a5aa3d7a04026a0df5cd15e
 nostrip=yes
 
 do_extract() {
